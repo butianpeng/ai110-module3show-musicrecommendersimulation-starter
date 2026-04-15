@@ -19,15 +19,20 @@ Replace this paragraph with your own summary of what your version does.
 
 Explain your design in plain language.
 
-Some prompts to answer:
+This recommender uses content-based filtering. It compares each 
+song's genre, mood, energy, and tempo to the user's preferences.
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-- What information does your `UserProfile` store
-- How does your `Recommender` compute a score for each song
-- How do you choose which songs to recommend
+**Song features used:** genre, mood, energy, tempo_bpm, valence, danceability
 
-You can include a simple diagram or bullet list if helpful.
+**UserProfile stores:** preferred_genre, preferred_mood, preferred_energy, preferred_tempo
+
+**Scoring Rule (one song):**
+- Genre match = 40 points
+- Mood match = 30 points
+- Energy closeness = 20 points
+- Tempo closeness = 10 points
+
+**Ranking Rule (all songs):** Sort all songs by score, recommend the top 3.
 
 ---
 
