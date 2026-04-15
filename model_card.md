@@ -1,111 +1,44 @@
 # 🎧 Model Card: Music Recommender Simulation
 
-## 1. Model Name  
+## 1. Model Name
+VibeFinder 1.0
 
-Give your model a short, descriptive name.  
-Example: **VibeFinder 1.0**  
+## 2. Goal / Task
+Suggest the top 3 songs from a small catalog that best match a
+user's preferred genre, mood, and energy level.
 
----
+## 3. Data Used
+10 songs in data/songs.csv. Features include genre, mood, energy,
+tempo, valence, and danceability. Only mainstream Western genres
+are represented. No songs were added or removed.
 
-## 2. Intended Use  
+## 4. Algorithm Summary
+Each song gets a score. Genre match adds 2.0 points. Mood match
+adds 1.0 point. Energy closeness adds up to 1.0 point. Songs are
+ranked from highest to lowest score and the top 3 are returned.
 
-Describe what your recommender is designed to do and who it is for. 
+## 5. Observed Behavior / Biases
+Genre match dominates the score. A rock user sometimes gets pop
+songs because mood match outweighs genre mismatch. Users who
+prefer ambient or jazz get poor results since the catalog has
+very few of those songs.
 
-Prompts:  
+## 6. Evaluation Process
+Tested 3 profiles: High-Energy Pop, Chill Lofi, Deep Intense Rock.
+Lofi and Rock results felt accurate. Pop occasionally surfaced
+non-pop songs due to strong mood matches.
 
-- What kind of recommendations does it generate  
-- What assumptions does it make about the user  
-- Is this for real users or classroom exploration  
+## 7. Intended Use and Non-Intended Use
+Designed for classroom exploration only. Not for real users or
+production music apps.
 
----
+## 8. Ideas for Improvement
+- Add more songs across more genres
+- Add tempo range matching
+- Balance diversity so top results aren't all the same genre
 
-## 3. How the Model Works  
-
-Explain your scoring approach in simple language.  
-
-Prompts:  
-
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
-
----
-
-## 4. Data  
-
-Describe the dataset the model uses.  
-
-Prompts:  
-
-- How many songs are in the catalog  
-- What genres or moods are represented  
-- Did you add or remove data  
-- Are there parts of musical taste missing in the dataset  
-
----
-
-## 5. Strengths  
-
-Where does your system seem to work well  
-
-Prompts:  
-
-- User types for which it gives reasonable results  
-- Any patterns you think your scoring captures correctly  
-- Cases where the recommendations matched your intuition  
-
----
-
-## 6. Limitations and Bias 
-
-Where the system struggles or behaves unfairly. 
-
-Prompts:  
-
-- Features it does not consider  
-- Genres or moods that are underrepresented  
-- Cases where the system overfits to one preference  
-- Ways the scoring might unintentionally favor some users  
-
----
-
-## 7. Evaluation  
-
-How you checked whether the recommender behaved as expected. 
-
-Prompts:  
-
-- Which user profiles you tested  
-- What you looked for in the recommendations  
-- What surprised you  
-- Any simple tests or comparisons you ran  
-
-No need for numeric metrics unless you created some.
-
----
-
-## 8. Future Work  
-
-Ideas for how you would improve the model next.  
-
-Prompts:  
-
-- Additional features or preferences  
-- Better ways to explain recommendations  
-- Improving diversity among the top results  
-- Handling more complex user tastes  
-
----
-
-## 9. Personal Reflection  
-
-A few sentences about your experience.  
-
-Prompts:  
-
-- What you learned about recommender systems  
-- Something unexpected or interesting you discovered  
-- How this changed the way you think about music recommendation apps  
+## 9. Personal Reflection
+My biggest learning was that even simple math can feel smart.
+AI tools helped me write code faster, but I had to double-check
+the scoring logic myself. What surprised me most was how much
+one weight (genre) could control all the results.
